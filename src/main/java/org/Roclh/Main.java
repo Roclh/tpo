@@ -1,5 +1,11 @@
-package org.Roclh;public class Main {
+package org.Roclh;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class Main {
+    private static final Logger log = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        log.info("Это лаба по тпо, она не должна запускаться, только тестироваться)");
     }
 }
