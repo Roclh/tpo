@@ -7,5 +7,6 @@ public class Main {
     private static final Logger log = LogManager.getLogger();
     public static void main(String[] args) {
         log.info("Это лаба по тпо, она не должна запускаться, только тестироваться)");
+        System.out.println(Math.cos(5.432));
     }
 }

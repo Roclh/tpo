@@ -20,7 +20,7 @@ public class CosTest {
     }
 
     @ParameterizedTest(name = "cos({0}) = {1}")
-    @DisplayName("Check between dots [-1; +1]")
+    @DisplayName("Check inbetween and large dots]")
     @CsvFileSource(resources = "/table_values.csv", numLinesToSkip = 1, delimiter = ';')
     void checkBetweenDotsMinusPiAndPi(double x, double y) {
         assertAll(

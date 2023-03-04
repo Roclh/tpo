@@ -9,6 +9,17 @@ public class Cos {
 
     public static double calculate(double x, int n){
         double result = 1;
+        double PI2 = Math.PI * 2;
+
+        if (x >= 0){
+            while(x > PI2){
+                x-= PI2;
+            }
+        } else {
+            while(x < PI2){
+                x += PI2;
+            }
+        }
 
         double xx = x * x;
         int sign = -1;
