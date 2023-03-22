@@ -1,36 +1,32 @@
 package org.Roclh;
 
+import java.util.Arrays;
+
 public class CountingSort {
 
-    public static int[] sort(int[] array){
-        int size = array.length;
-        int[] result = new int[size + 1];
+    public static int[] sort(int[] arr){
+        int min = Arrays.stream(arr).min().orElse(0);
+        int max = Arrays.stream(arr).max().orElse(0);
+        int range = max - min + 1;
+        int[] count = new int[range];
+        int[] sortedArr = new int[arr.length];
 
-        // Находим максимальное значение массива
-        int max = array[0];
-        for(int i = 1; i < size; i++){
-            if (array[i] > max){
-                max = array[i];
-            }
-        }
-        int[] count = new int[max + 1];
-
-        // Сохраняем количество каждого значения
-        for (int j : array) {
-            count[j]++;
+        // Count the occurrences of each element
+        for (int j : arr) {
+            count[j - min]++;
         }
 
-        // Сохраняем кумулятивное количество элементов
-        for (int i = 1; i <= max; i++){
-            count[i] += count[i-1];
+        // Accumulate the counts to determine the position of each element in the sorted array
+        for (int i = 1; i < count.length; i++) {
+            count[i] += count[i - 1];
         }
 
-        // Сортируем
-        for (int i = size - 1; i >= 0; i--){
-            result[count[array[i]] - 1] = array[i];
-            count[array[i]]--;
+        // Build the sorted array
+        for (int i = arr.length - 1; i >= 0; i--) {
+            sortedArr[--count[arr[i] - min]] = arr[i];
         }
 
-        return result;
+
+        return sortedArr;
     }
 }
