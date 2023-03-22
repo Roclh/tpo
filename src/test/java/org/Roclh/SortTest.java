@@ -57,7 +57,7 @@ public class SortTest {
     @NullSource
     @DisplayName("Check null")
     public void checkNull(int[] array){
-        assertThrows(NullPointerException.class, ()-> CountingSort.sort(null));
+        assertThrows(NullPointerException.class, ()-> CountingSort.sort(array));
     }
 
 }
